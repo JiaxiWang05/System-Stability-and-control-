@@ -1,0 +1,730 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, hyperref}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    pdftitle={Questions Document},
+    bookmarksnumbered=true,
+    pdfpagemode=UseOutlines,
+    pdfstartview=FitH,
+    pdfauthor={Your Name},
+    pdfsubject={Exercise Solutions}
+}
+
+\begin{document}
+
+% Title
+\title{Exercise Solutions}
+\author{Your Name}
+\date{\today}
+\maketitle
+
+% Table of Contents
+\tableofcontents
+\newpage
+
+% Question 1
+\section*{Question 1: Solving a Differential Equation Using Laplace Transform}
+\addcontentsline{toc}{section}{Question 1: Solving a Differential Equation Using Laplace Transform}
+
+\textbf{Exercise Overview:}
+
+\textbf{Given Differential Equation:}  
+\[
+2\frac{d^2y(t)}{dt^2} + 4\frac{dy(t)}{dt} + 2y(t) = f(t)
+\]
+
+\textbf{Tasks:}
+\begin{enumerate}
+    \item Find the Laplace Transform of the equation.
+    \item Derive the transfer function of the system.
+    \item Determine the zeros and poles of the transfer function.
+\end{enumerate}
+
+---
+
+\subsection*{Step 1: Laplace Transform of the Differential Equation}
+The Laplace Transform converts the time-domain differential equation into an algebraic equation in the Laplace domain. The key properties used here include:
+\[
+\mathcal{L}\left[\frac{d^n y(t)}{dt^n}\right] = s^n Y(s),
+\]
+where \( Y(s) \) is the Laplace Transform of \( y(t) \), assuming zero initial conditions.
+
+\textbf{Given Differential Equation:}
+\[
+2\frac{d^2y(t)}{dt^2} + 4\frac{dy(t)}{dt} + 2y(t) = f(t)
+\]
+
+Applying the Laplace Transform:
+\begin{align*}
+    \mathcal{L}\left[2\frac{d^2y(t)}{dt^2}\right] &= 2s^2 Y(s), \\
+    \mathcal{L}\left[4\frac{dy(t)}{dt}\right] &= 4s Y(s), \\
+    \mathcal{L}[2y(t)] &= 2Y(s), \\
+    \mathcal{L}[f(t)] &= F(s).
+\end{align*}
+
+Substituting these into the equation:
+\[
+2s^2 Y(s) + 4s Y(s) + 2Y(s) = F(s).
+\]
+
+Combine terms involving \( Y(s) \):
+\[
+Y(s) \big( 2s^2 + 4s + 2 \big) = F(s).
+\]
+
+This is the Laplace-transformed equation.
+
+---
+
+\subsection*{Step 2: Transfer Function}
+The transfer function \( H(s) \) is defined as:
+\[
+H(s) = \frac{Y(s)}{F(s)}.
+\]
+
+From the Laplace-transformed equation:
+\[
+Y(s) = \frac{F(s)}{2s^2 + 4s + 2}.
+\]
+
+The transfer function becomes:
+\[
+H(s) = \frac{1}{2s^2 + 4s + 2}.
+\]
+
+Simplify the denominator:
+\[
+H(s) = \frac{1}{2(s^2 + 2s + 1)} = \frac{1}{2(s+1)^2}.
+\]
+
+---
+
+\subsection*{Step 3: Zeros and Poles}
+\begin{enumerate}
+    \item \textbf{Zeros:}  
+    Zeros are the roots of the numerator of the transfer function. Since the numerator is \( 1 \), there are no zeros.
+
+    \item \textbf{Poles:}  
+    Poles are the roots of the denominator \( 2(s+1)^2 \):
+    \[
+    2(s+1)^2 = 0 \implies s+1 = 0 \implies s = -1.
+    \]
+    Thus, there is a single pole at \( s = -1 \), but it is a repeated pole due to the squared term.
+\end{enumerate}
+
+---
+
+\subsection*{Final Results}
+\begin{enumerate}
+    \item \textbf{Laplace Transform} of the differential equation:
+    \[
+    Y(s) \big( 2s^2 + 4s + 2 \big) = F(s).
+    \]
+
+    \item \textbf{Transfer Function:}
+    \[
+    H(s) = \frac{1}{2(s+1)^2}.
+    \]
+
+    \item \textbf{Zeros and Poles:}
+    \begin{itemize}
+        \item \textbf{Zeros:} None.
+        \item \textbf{Poles:} \( s = -1 \) (repeated pole).
+    \end{itemize}
+\end{enumerate}
+
+\newpage
+
+% Question 2 (Placeholder)\section*{Question 2: Finding the Transfer Function of a Second-Order System}
+\addcontentsline{toc}{section}{Question 2: Finding the Transfer Function of a Second-Order System}
+
+\textbf{Problem Overview:}
+
+\textbf{Given Second-Order System:}
+\[
+\alpha \frac{d^2y(t)}{dt^2} + \beta \frac{dy(t)}{dt} + \gamma y(t) = 2r(t)
+\]
+
+\textbf{Objective:}
+Find the \textbf{transfer function} of the system.
+
+---
+
+\subsection*{Step 1: Recall the Laplace Transform}
+
+The Laplace Transform is applied to each term in the time-domain equation to convert it into an algebraic equation in the \( s \)-domain. We use the following rules:
+\begin{align*}
+    \mathcal{L}\left[\frac{d^2 y(t)}{dt^2}\right] &= s^2 Y(s) \quad \text{(for zero initial conditions)}, \\
+    \mathcal{L}\left[\frac{dy(t)}{dt}\right] &= s Y(s), \\
+    \mathcal{L}[y(t)] &= Y(s), \\
+    \mathcal{L}[r(t)] &= R(s).
+\end{align*}
+
+---
+
+\subsection*{Step 2: Apply the Laplace Transform to the Given Equation}
+
+The given system is:
+\[
+\alpha \frac{d^2y(t)}{dt^2} + \beta \frac{dy(t)}{dt} + \gamma y(t) = 2r(t)
+\]
+
+Applying the Laplace Transform to each term:
+
+\begin{enumerate}
+    \item For \( \alpha \frac{d^2y(t)}{dt^2} \):  
+    \[
+    \mathcal{L}\left[\alpha \frac{d^2y(t)}{dt^2}\right] = \alpha s^2 Y(s)
+    \]
+
+    \item For \( \beta \frac{dy(t)}{dt} \):  
+    \[
+    \mathcal{L}\left[\beta \frac{dy(t)}{dt}\right] = \beta s Y(s)
+    \]
+
+    \item For \( \gamma y(t) \):  
+    \[
+    \mathcal{L}[\gamma y(t)] = \gamma Y(s)
+    \]
+
+    \item For \( 2r(t) \):  
+    \[
+    \mathcal{L}[2r(t)] = 2R(s)
+    \]
+\end{enumerate}
+
+Substituting these into the given equation:
+\[
+\alpha s^2 Y(s) + \beta s Y(s) + \gamma Y(s) = 2R(s)
+\]
+
+---
+
+\subsection*{Step 3: Simplify the Equation}
+
+Factor \( Y(s) \) on the left-hand side:
+\[
+Y(s) \big( \alpha s^2 + \beta s + \gamma \big) = 2R(s)
+\]
+
+Rearranging for \( \frac{Y(s)}{R(s)} \):
+\[
+\frac{Y(s)}{R(s)} = \frac{2}{\alpha s^2 + \beta s + \gamma}
+\]
+
+---
+
+\subsection*{Step 4: Write the Transfer Function}
+
+The transfer function \( H(s) \) is defined as:
+\[
+H(s) = \frac{Y(s)}{R(s)}
+\]
+
+From the simplified equation:
+\[
+H(s) = \frac{2}{\alpha s^2 + \beta s + \gamma}
+\]
+
+---
+
+\subsection*{Final Result}
+
+The transfer function for the system is:
+\[
+H(s) = \frac{2}{\alpha s^2 + \beta s + \gamma}
+\]
+
+---
+
+\subsection*{Explanation of the Process}
+
+\begin{enumerate}
+    \item The Laplace Transform simplifies differential equations by converting time-domain derivatives into algebraic terms involving \( s \).
+    \item By substituting the Laplace transforms of each term, the equation becomes a polynomial in \( s \) with \( Y(s) \) (the Laplace Transform of \( y(t) \)) and \( R(s) \) (the Laplace Transform of \( r(t) \)) as variables.
+    \item Factoring out \( Y(s) \), we isolate the ratio \( \frac{Y(s)}{R(s)} \), which defines the transfer function.
+    \item The transfer function describes the relationship between the input \( r(t) \) and output \( y(t) \) in the \( s \)-domain.
+\end{enumerate}
+
+
+\newpage
+
+\section*{Question 4: Stability Analysis and Transfer Function of a Second-Order System}
+\addcontentsline{toc}{section}{Question 4: Stability Analysis and Transfer Function of a Second-Order System}
+
+Let’s go through the exercise and solution step by step in detail.
+
+---
+
+\subsection*{Problem Overview}
+
+\textbf{System Given:}
+\[
+4 \frac{d^2y(t)}{dt^2} - 3K \frac{dy(t)}{dt} + y(t) = f(t)
+\]
+
+\textbf{Tasks:}
+\begin{enumerate}
+    \item Find the \textbf{Laplace transform} of the given equation.
+    \item Determine the \textbf{transfer function} of the system.
+    \item Check if the system is \textbf{stable} for \( K = \frac{4}{3} \).
+\end{enumerate}
+
+---
+
+\subsection*{Step 1: Laplace Transform of the Equation}
+
+The Laplace Transform converts the differential equation from the time domain to the Laplace domain. For zero initial conditions, we use:
+\begin{align*}
+    \mathcal{L}\left[\frac{d^2y(t)}{dt^2}\right] &= s^2 Y(s), \\
+    \mathcal{L}\left[\frac{dy(t)}{dt}\right] &= s Y(s), \\
+    \mathcal{L}[y(t)] &= Y(s), \\
+    \mathcal{L}[f(t)] &= F(s).
+\end{align*}
+
+\textbf{Given equation:}
+\[
+4 \frac{d^2y(t)}{dt^2} - 3K \frac{dy(t)}{dt} + y(t) = f(t)
+\]
+
+Applying the Laplace Transform:
+\[
+4 s^2 Y(s) - 3K s Y(s) + Y(s) = F(s)
+\]
+
+---
+
+\subsection*{Step 2: Simplify the Equation}
+
+Factor \( Y(s) \) on the left-hand side:
+\[
+Y(s) \big( 4 s^2 - 3K s + 1 \big) = F(s)
+\]
+
+Rearrange to solve for \( Y(s) \):
+\[
+Y(s) = \frac{F(s)}{4 s^2 - 3K s + 1}
+\]
+
+---
+
+\subsection*{Step 3: Transfer Function}
+
+The transfer function \( H(s) \) is defined as:
+\[
+H(s) = \frac{Y(s)}{F(s)}
+\]
+
+From the equation:
+\[
+H(s) = \frac{1}{4 s^2 - 3K s + 1}
+\]
+
+---
+
+\subsection*{Step 4: System Stability}
+
+The system's stability depends on the location of the \textbf{poles}, which are the roots of the denominator \( 4 s^2 - 3K s + 1 \). The roots are found using the quadratic formula:
+\[
+s = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\]
+
+Here:
+\begin{align*}
+    a &= 4, \\
+    b &= -3K, \\
+    c &= 1.
+\end{align*}
+
+Substituting into the formula:
+\[
+s = \frac{-(-3K) \pm \sqrt{(-3K)^2 - 4(4)(1)}}{2(4)}
+\]
+\[
+s = \frac{3K \pm \sqrt{9K^2 - 16}}{8}
+\]
+
+---
+
+\subsection*{Case: \( K = \frac{4}{3} \)}
+
+Substitute \( K = \frac{4}{3} \) into the equation:
+\[
+s = \frac{3 \cdot \frac{4}{3} \pm \sqrt{9 \left(\frac{4}{3}\right)^2 - 16}}{8}
+\]
+
+Simplify \( 3K = 4 \):
+\[
+s = \frac{4 \pm \sqrt{16 - 16}}{8}
+\]
+
+Simplify further:
+\[
+s = \frac{4}{8} = \frac{1}{2}
+\]
+
+---
+
+\subsection*{Step 5: Conclusion on Stability}
+
+Since one of the poles (\( s = \frac{1}{2} \)) has a positive real part, the system is \textbf{unstable} for \( K = \frac{4}{3} \).
+
+---
+
+\subsection*{Final Results}
+
+\begin{enumerate}
+    \item \textbf{Laplace Transform:}
+    \[
+    4 s^2 Y(s) - 3K s Y(s) + Y(s) = F(s)
+    \]
+
+    \item \textbf{Transfer Function:}
+    \[
+    H(s) = \frac{1}{4 s^2 - 3K s + 1}
+    \]
+
+    \item \textbf{Stability:}
+    For \( K = \frac{4}{3} \), the system is \textbf{unstable} because one of the poles (\( s = \frac{1}{2} \)) has a positive real part.
+\end{enumerate}
+\section*{Question 5: Derivation of the Second-Order Differential Equation for a Series RLC Circuit}
+\addcontentsline{toc}{section}{Question 5: Derivation of the Second-Order Differential Equation for a Series RLC Circuit}
+
+Let’s go step by step and in great detail explain the derivation of the second-order differential equation for the \textbf{series RLC circuit}.
+
+---
+
+\subsection*{Circuit Description}
+
+We are analyzing a \textbf{series RLC circuit}, which consists of:
+\begin{itemize}
+    \item \textbf{Resistor (R):} Voltage drop across the resistor is proportional to the current, \( v_R = R i(t) \).
+    \item \textbf{Inductor (L):} Voltage drop across the inductor is proportional to the rate of change of current, \( v_L = L \frac{di(t)}{dt} \).
+    \item \textbf{Capacitor (C):} Voltage across the capacitor is proportional to the charge, \( v_C = v(t) \), where \( q(t) = C v(t) \).
+\end{itemize}
+
+Key points:
+\begin{itemize}
+    \item The current \( i(t) \) is the same through all components because they are in series.
+    \item The total voltage in the loop is distributed across the three components.
+\end{itemize}
+
+---
+
+\subsection*{Step 1: Kirchhoff's Voltage Law (KVL)}
+
+Using Kirchhoff’s Voltage Law, the sum of voltages across all components in a closed loop equals zero:
+\[
+v_R + v_L + v_C = 0
+\]
+
+Substitute the expressions for the voltage across each component:
+\[
+R i(t) + L \frac{di(t)}{dt} + v(t) = 0 \tag{1}
+\]
+
+Here:
+\begin{itemize}
+    \item \( R i(t) \): Voltage drop across the resistor.
+    \item \( L \frac{di(t)}{dt} \): Voltage drop across the inductor.
+    \item \( v(t) \): Voltage across the capacitor.
+\end{itemize}
+
+---
+
+\subsection*{Step 2: Relating Current \( i(t) \) to Voltage \( v(t) \)}
+
+The relationship between the current \( i(t) \) and the voltage across the capacitor \( v(t) \) comes from the definition of capacitance:
+\[
+i(t) = C \frac{dv(t)}{dt} \tag{2}
+\]
+
+This equation states that the current flowing through the capacitor is proportional to the rate of change of the voltage across it.
+
+---
+
+\subsection*{Step 3: Substitute \( i(t) = C \frac{dv(t)}{dt} \) into KVL}
+
+Substitute \( i(t) = C \frac{dv(t)}{dt} \) into the KVL equation:
+\[
+R \left(C \frac{dv(t)}{dt}\right) + L \frac{d}{dt} \left(C \frac{dv(t)}{dt}\right) + v(t) = 0
+\]
+
+Expand the terms:
+\begin{itemize}
+    \item Resistor term:
+    \[
+    R C \frac{dv(t)}{dt}
+    \]
+
+    \item Inductor term:
+    \[
+    L \frac{d}{dt} \left(C \frac{dv(t)}{dt}\right) = L C \frac{d^2v(t)}{dt^2}
+    \]
+
+    \item Capacitor term:
+    \[
+    v(t)
+    \]
+\end{itemize}
+
+Substituting back:
+\[
+L C \frac{d^2v(t)}{dt^2} + R C \frac{dv(t)}{dt} + v(t) = 0 \tag{3}
+\]
+
+---
+
+\subsection*{Step 4: Normalize the Equation}
+
+To simplify, divide through by \( C \):
+\[
+L \frac{d^2v(t)}{dt^2} + R \frac{dv(t)}{dt} + \frac{1}{C} v(t) = 0
+\]
+
+Finally, divide through by \( L \) to express the equation in a normalized form:
+\[
+\frac{d^2v(t)}{dt^2} + \frac{R}{L} \frac{dv(t)}{dt} + \frac{1}{L C} v(t) = 0 \tag{4}
+\]
+
+---
+
+\subsection*{Final Second-Order Differential Equation}
+
+The final equation is:
+\[
+\frac{d^2v(t)}{dt^2} + \frac{R}{L} \frac{dv(t)}{dt} + \frac{1}{L C} v(t) = 0 \tag{5}
+\]
+
+---
+
+\subsection*{Explanation of Terms}
+
+\begin{enumerate}
+    \item \textbf{\(\frac{d^2v(t)}{dt^2}\):}
+    Represents the acceleration (second derivative) of the voltage across the capacitor, arising from the inductance (\( L \)) and inertia for current changes.
+
+    \item \textbf{\(\frac{R}{L} \frac{dv(t)}{dt}\):}
+    Represents the damping effect in the circuit caused by resistance (\( R \)). Larger \( R \) increases damping, reducing oscillations.
+
+    \item \textbf{\(\frac{1}{L C} v(t)\):}
+    Represents the restoring force due to capacitance (\( C \)) and inductance (\( L \)), determining the natural oscillatory behavior of the system.
+\end{enumerate}
+
+---
+
+\subsection*{Physical Meaning of the Equation}
+
+The second-order differential equation describes the behavior of the voltage across the capacitor in the RLC circuit:
+\begin{itemize}
+    \item The circuit oscillates due to the interplay of inductance (\( L \)) and capacitance (\( C \)).
+    \item The resistance (\( R \)) damps the oscillations, leading to energy loss over time.
+    \item The natural frequency of oscillation is given by:
+    \[
+    \omega_n = \sqrt{\frac{1}{L C}} \tag{6}
+    \]
+    \item The damping ratio is given by:
+    \[
+    \zeta = \frac{R}{2} \sqrt{\frac{C}{L}} \tag{7}
+    \]
+\end{itemize}
+
+---
+
+\subsection*{Summary}
+
+The derived equation:
+\[
+\frac{d^2v(t)}{dt^2} + \frac{R}{L} \frac{dv(t)}{dt} + \frac{1}{L C} v(t) = 0
+\]
+is a second-order differential equation describing the voltage across the capacitor in a series RLC circuit. It shows how the system oscillates, is damped by resistance, and is governed by the natural frequency \( \omega_n \).
+
+---
+
+\newpage
+\section*{Question 6: Derivation of the Differential Equation for a Parallel RLC Circuit}
+\addcontentsline{toc}{section}{Question 6: Derivation of the Differential Equation for a Parallel RLC Circuit}
+
+Let’s go through the \textbf{Parallel RLC Circuit} analysis step by step in \textbf{great detail}.
+
+---
+
+\subsection*{Step 1: Parallel RLC Circuit Description}
+
+In a parallel RLC circuit:
+\begin{itemize}
+    \item The \textbf{resistor (\(R\))}, \textbf{inductor (\(L\))}, and \textbf{capacitor (\(C\))} are connected in parallel.
+    \item The voltage across all three components is the same and is denoted as \(v(t)\).
+    \item The total current flowing into the circuit is the sum of the currents through each branch (capacitor, resistor, and inductor).
+\end{itemize}
+
+---
+
+\subsection*{Step 2: Kirchhoff’s Current Law (KCL)}
+
+Using Kirchhoff's Current Law (KCL), the total current entering the parallel circuit equals the sum of the currents through the resistor, capacitor, and inductor:
+\[
+i_C + i_R + i_L = 0
+\]
+
+\textbf{Current Expressions}:
+\begin{enumerate}
+    \item Current through the capacitor (\(i_C\)):
+    \[
+    i_C = C \frac{dv(t)}{dt}
+    \]
+
+    \item Current through the resistor (\(i_R\)):
+    \[
+    i_R = \frac{v(t)}{R}
+    \]
+
+    \item Current through the inductor (\(i_L\)):
+    \[
+    i_L = \frac{1}{L} \int_0^t v(t) \, dt
+    \]
+\end{enumerate}
+
+Substituting these expressions into the KCL equation:
+\[
+C \frac{dv(t)}{dt} + \frac{v(t)}{R} + \frac{1}{L} \int_0^t v(t) \, dt = 0 \tag{1}
+\]
+
+---
+
+\subsection*{Step 3: Eliminate the Integral Term}
+
+To convert this into a differential equation, differentiate both sides with respect to time:
+\[
+\frac{d}{dt} \left[ C \frac{dv(t)}{dt} + \frac{v(t)}{R} + \frac{1}{L} \int_0^t v(t) \, dt \right] = 0
+\]
+
+Expanding each term:
+\begin{itemize}
+    \item The derivative of the capacitor current:
+    \[
+    \frac{d}{dt} \left( C \frac{dv(t)}{dt} \right) = C \frac{d^2v(t)}{dt^2}
+    \]
+
+    \item The derivative of the resistor current:
+    \[
+    \frac{d}{dt} \left( \frac{v(t)}{R} \right) = \frac{1}{R} \frac{dv(t)}{dt}
+    \]
+
+    \item The derivative of the inductor current:
+    \[
+    \frac{d}{dt} \left( \frac{1}{L} \int_0^t v(t) \, dt \right) = \frac{1}{L} v(t)
+    \]
+\end{itemize}
+
+Substituting back into the equation:
+\[
+C \frac{d^2v(t)}{dt^2} + \frac{1}{R} \frac{dv(t)}{dt} + \frac{1}{L} v(t) = 0 \tag{2}
+\]
+
+---
+
+\subsection*{Step 4: Final Differential Equation}
+
+Rewriting the equation:
+\[
+\frac{d^2v(t)}{dt^2} + \frac{1}{RC} \frac{dv(t)}{dt} + \frac{1}{LC} v(t) = 0 \tag{3}
+\]
+
+This is the \textbf{second-order differential equation} describing the voltage dynamics in a \textbf{parallel RLC circuit}.
+
+---
+
+\subsection*{Step 5: Stability Analysis}
+
+The stability and damping characteristics of the system are determined by the coefficients of this equation.
+
+\textbf{General Form of a Second-Order Equation:}
+\[
+\ddot{v} + 2\zeta\omega_n \dot{v} + \omega_n^2 v = 0
+\]
+
+Comparing with:
+\[
+\ddot{v} + \frac{1}{RC} \dot{v} + \frac{1}{LC} v = 0
+\]
+
+\begin{itemize}
+    \item The \textbf{natural frequency (\(\omega_n\))} is:
+    \[
+    \omega_n = \sqrt{\frac{1}{LC}}
+    \]
+
+    \item The \textbf{damping ratio (\(\zeta\))} is:
+    \[
+    \zeta = \frac{1}{2RC} \sqrt{LC}
+    \]
+\end{itemize}
+
+---
+
+\subsection*{Step 6: Overdamped, Critically Damped, and Underdamped Cases}
+
+For a second-order system, the behavior depends on the discriminant of the characteristic equation:
+\[
+b^2 - 4ac
+\]
+
+Here, the coefficients are:
+\begin{align*}
+    a &= 1, \\
+    b &= \frac{1}{RC}, \\
+    c &= \frac{1}{LC}.
+\end{align*}
+
+The system is:
+\begin{enumerate}
+    \item \textbf{Overdamped:} \(b^2 > 4ac\)
+    \[
+    R^2C^2 > \frac{L}{4C}
+    \]
+
+    \item \textbf{Critically Damped:} \(b^2 = 4ac\)
+    \[
+    R = \sqrt{\frac{L}{4C}}
+    \]
+
+    \item \textbf{Underdamped:} \(b^2 < 4ac\)
+    \[
+    R^2C^2 < \frac{L}{4C}
+    \]
+\end{enumerate}
+
+---
+
+\subsection*{Step 7: Oscillation Frequency}
+
+When the system is underdamped, it oscillates with a frequency less than the natural frequency (\(\omega_n\)). The damped oscillation frequency is:
+\[
+\omega_d = \sqrt{\frac{1}{LC} - \left(\frac{1}{2RC}\right)^2} \tag{4}
+\]
+
+---
+
+\subsection*{Key Observations}
+
+\begin{enumerate}
+    \item \textbf{Stability:}
+    The system is always stable if \(L > 0\), \(R > 0\), and \(C > 0\), because there are no poles in the right-half plane.
+
+    \item \textbf{Damping:}
+    The damping ratio depends on \(R\), \(L\), and \(C\). Smaller \(R\) leads to oscillatory behavior, while larger \(R\) leads to overdamping.
+
+    \item \textbf{Oscillatory Behavior:}
+    Oscillations occur only in the underdamped case, where \(R < \sqrt{\frac{L}{4C}}\).
+\end{enumerate}
+
+---
+
+
+
+\end{document}
